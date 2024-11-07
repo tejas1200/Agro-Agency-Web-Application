@@ -1,0 +1,240 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+
+<!--Banner Slider-->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active position-relative">
+      <img src="{% static 'app/images/brandda.jpg' %}" class="d-block w-100">
+
+      <!-- Text on Carousel Center -->
+      <div class="carousel-caption d-none d-md-block" style="margin-bottom: 400px; color: rgb(20, 0, 0);">
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          Welcome to
+        </h1>
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none"
+          style="font-weight: bold; font-size: 70px;">
+          Darshan Agro Agencies !
+        </h1>
+        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+          We provide the best services in the industry.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2nd banner -->
+
+    <div class="carousel-item position-relative">
+      <img src="{% static 'app/images/banner/baner2.jpg' %}" class="d-block w-100">
+
+      <div class="carousel-caption d-none d-md-block" style="margin-bottom: 70px;">
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          Welcome to
+        </h1>
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none"
+          style="font-weight: bold; font-size: 70px;">
+          Darshan Agro Agencies !
+        </h1>
+        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+          We provide the best services in the industry.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3rd banner -->
+
+    <div class="carousel-item position-relative">
+      <img src="{% static 'app/images/banner/baner3.jpg' %}" class="d-block w-100">
+
+      <div class="carousel-caption d-none d-md-block" style="margin-bottom: 70px;">
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          Welcome to
+        </h1>
+        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none"
+          style="font-weight: bold; font-size: 70px;">
+          Darshan Agro Agencies !
+        </h1>
+        <p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+          We provide the best services in the industry.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4th banner -->
+
+    <div class="carousel-item position-relative">
+      <img src="{% static 'app/images/banner/banner4.jpg' %}" class="d-block w-100">
+    </div>
+
+    <!-- Repeat for other carousel items -->
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+
+<!-- Live Sale Section -->
+<div class="container-fluid">
+  <div class="row text-center p-5 text-white border-bottom shadow" style="background-color: yellowgreen;">
+    <h1>DARSHAN AGRO AGENCIES</h1>
+    <span>darshanagro1200@gmail.com | Mo. 9322738223</span>
+    <small class="fw-lighter">Bhimrao Bapu Market, Neri, Jamner, Jalgaon 424206</small>
+    <small class="fw-lighter">Authorized Dealer of Jain Irrigation Sys.Lmt</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+
+{% block main-content %}
+
+<!-- 1st Product Slider -->
+<div class="m-5" style="background: linear-gradient(to top,black, white); border-radius: 15px; height: 460px; padding-top: 15px;">
+  <h2 style="margin-left: 20px; font-weight: bold; color:  rgb(54, 54, 54)">Drip</h2>
+  <!-- Slider 1 -->
+  <div class="owl-carousel" id="slider1" style="border-radius: 2px; padding: 15px;">
+
+    {% for d in drip %}
+    <a href="{% url 'product-detail' d.id %}" class="btn" style="padding: 25px; border-radius: 12px; background-color: white;"> 
+                                                                                                                                     <!-- #00d5ff00  #84ff53 -->
+
+    
+      <div class="item rounded" style="padding: 15px;">
+        <img src="{{ d.product_image.url }}" style="border-radius:5px; margin-top: -20px; margin-bottom: 5px;" height="200px" width="200px">
+        <span class="fw-bold" style="color:black; font-size: 20px;">{{ d.title }}</span><br>
+        <span class="fs-4">Rs. {{ d.discounted_price }}</span>
+      </div>
+    </a>
+
+    {% endfor %}
+
+  </div>
+</div>
+
+<!-- End 1st Product Slider -->
+
+<!-- 2nd Product Slider -->
+<div class="m-5" style="background: linear-gradient(to top, black, white); border-radius: 15px; height: 460px; padding-top: 15px;">
+  <h2 style="margin-left: 20px; font-weight: bold; color: rgb(54, 54, 54);">PVC Products</h2>
+  <!-- Slider 2 -->
+  <div class="owl-carousel" id="slider2" style="border-radius: 2px; padding: 15px;">
+
+    {% for p in pipe %}
+
+    <a href="{% url 'product-detail' p.id %}" class="btn" style="padding: 25px; border-radius: 12px; background-color: white;">
+      <div class="item rounded" style="padding: 15px;">
+        <img src="{{ p.product_image.url }}"style="border-radius:5px; margin-top: -20px; margin-bottom: 5px;" height="200px" width="200px">
+        <span class="fw-bold" style="color:black; font-size: 20px;">{{ p.title }}</span><br>
+        <span class="fs-5">Rs. {{ p.discounted_price }}</span>
+      </div>
+    </a>
+
+    {% endfor %}
+
+  </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+
+{% block about_banner %}
+
+<div class="container-fluid" style="padding-left: 50px; padding-right: 50px;">
+  <div class="about-section text-center" style="border-radius: 10px; background-color: rgb(180, 232, 76); padding-left:30px; padding-right:30px;">
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <img src="{% static 'app/images/banner/bull.jpg' %}" alt="About Us Image" class="about-image">
+      </div>
+      <div class="col-md-6">
+        <h2 style="text-align:justify; color: white; font-weight: bold;" >Why choose us ?</h2>
+      <p style="text-align:justify; margin-top: 40px; font-weight: bold;  color: rgb(77, 77, 77); ">Expertise and knowledge: You have a deep understanding of the agricultural industry and the specific needs of your customers.</p>
+      <p style="text-align:justify; margin-top: 40px; font-weight: bold;  color: rgb(77, 77, 77); ">Quality products and services: You offer high-quality products and services that are reliable and effective</p>
+      <p style="text-align:justify; margin-top: 40px; font-weight: bold;  color: rgb(77, 77, 77); ">Competitive prices: You offer competitive prices that are fair to both you and your customers.</p>
+      <p style="text-align:justify; margin-top: 40px; font-weight: bold;  color: rgb(77, 77, 77); ">Customer service: You provide excellent customer service that is responsive and helpful.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock about_banner %}
+
+<div class="container-fluid" style="padding: 15px; background-color: rgb(232, 232, 232); margin-top: 50px; margin-bottom: 50px;">
+  <!-- Payment Info Section -->
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-sm-3 mx-auto">
+        <div class="card mb-3" style="border-radius: 15px;">
+          <div class="card-body" id="cards">
+            <a href="{% url 'drip' %}">
+            <img src="{% static 'app/images/payavail/thumbnail1.jpg' %}"  srcset="" class="img-fluid" style="border-radius: 5px;">
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mx-auto">
+        <div class="card mb-3" style="border-radius: 15px;">
+          <div class="card-body"id="cards">
+            <a href="{% url 'pipe' %}">
+            <img src="{% static 'app/images/payavail/thumbnail2.jpg' %}"  srcset="" class="img-fluid" style="border-radius: 5px;">
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mx-auto">
+        <div class="card mb-3" style="border-radius: 15px;">
+          <div class="card-body" id="cards">
+            <a href="{% url 'fitting' %}">
+            <img src="{% static 'app/images/payavail/thumbnail3.jpg' %}" alt="" srcset="" class="img-fluid" style="border-radius: 5px;">
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mx-auto">
+        <div class="card mb-3" style="border-radius: 15px;">
+          <div class="card-body" id="cards">
+            <a href="{% url 'tissue' %}">
+            <img src="{% static 'app/images/payavail/thumbnail4.jpg' %}" alt="" srcset="" class="img-fluid" style="border-radius: 5px;">
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Payment Info Section -->
+
+
+
+<!-- 3rd Product Slider -->
+
+<!-- <div class="mx-3">
+  <h2>Tissue</h2>
+  <div class="owl-carousel" id="slider3">
+    {% for t in tissue %}
+    <a href="{% url 'product-detail' t.id %}" class="btn">
+      <div class="item">
+        <img src="{{ t.product_image.url }}" alt="" height="200px">
+        <span class="fw-bold">{{ t.title }}</span><br>
+        <span class="fs-5">Rs. {{ t.discounted_price }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div> -->
+
+<!-- End 3rd Product Slider -->
+
+{% endblock main-content %}

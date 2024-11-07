@@ -1,0 +1,101 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock title %}
+{% block main-content %}
+
+<section class="container py-5 my-md-5 py-md-5 text-center">
+    <div class="row mb-4">
+      <div class="col-lg-6 m-auto" >
+        <img
+          src="{% static 'app/images/banner/bull.jpg' %}"
+          width="550"
+          height="310"
+          alt="Image"
+          class="img-fluid rounded-xl"
+          style="border-radius: 15px; box-shadow: black;"
+        />
+      </div>
+      <div class="col-lg-6">
+        <div class="mb-4">
+          <div class="bg-light rounded-lg px-3 py-1 text-sm" style="background-color: white;">About Us</div>
+          <h2 class="display-4 fw-bold">Our Mission</h2>
+          <p class="lead text-muted">
+            To provide the best service to our customers.
+          </p>
+        </div>
+        <ul class="list-unstyled">
+          <li class="mb-2" style="text-align: justify;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bi bi-check mr-2"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            We are committed to delivering high-quality products and services.
+          </li>
+          <li class="mb-2"  style="text-align: justify;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bi bi-check mr-2"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            We value our customers and strive to exceed their expectations.
+          </li>
+          <li class="mb-2"  style="text-align: justify;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="bi bi-check mr-2"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            We are dedicated to continuous improvement and innovation.
+          </li>
+        </ul>
+        <div class="d-flex flex-column gap-2 min-md-flex-row">
+          <a
+            class="btn btn-primary"
+            href="{% url 'contact' %}"
+            rel="ugc"
+            style="background-color: yellowgreen; border: none;"
+          >
+            Contact Us
+          </a>
+          <a
+            class="btn btn-outline-success"
+            href="#"
+            rel="ugc"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+{% endblock main-content %}
